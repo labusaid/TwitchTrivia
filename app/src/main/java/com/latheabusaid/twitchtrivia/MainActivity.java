@@ -1,17 +1,36 @@
 package com.latheabusaid.twitchtrivia;
 
+import android.app.DownloadManager;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+
+import java.io.IOException;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     private String m_Text = "";
+
+    OkHttpClient client = new OkHttpClient();
+
+    String getFromUrl(String url) throws IOException {
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 m_Text = input.getText().toString();
+//                get request @url/game/start?name=m_Text
+//                get request @url/game/question/current
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -47,9 +68,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void readyButtonClicked(View view) {
+//        get request @url/game/question/ready
     }
 
     public void answer1Clicked(View view) {
+//        get request @url/game/question/answer?choice=num
     }
 
     public void answer2Clicked(View view) {
