@@ -6,14 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/answer4"
+        android:layout_width="324dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:text="Ready"
+        android:onClick="answer4Clicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer3" />
+
+    <Button
+        android:id="@+id/answer3"
+        android:layout_width="324dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:text="Ready"
+        android:onClick="answer3Clicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer2" />
+
+    <Button
+        android:id="@+id/answer1"
+        android:layout_width="324dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="75dp"
+        android:text="Ready"
+        android:onClick="answer1Clicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameButton" />
+
+    <Button
+        android:id="@+id/answer2"
+        android:layout_width="324dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:text="Ready"
+        android:onClick="answer2Clicked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer1" />
+
+    <Button
+        android:id="@+id/nameButton"
+        android:layout_width="0dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:text="Name"
+        android:onClick="nameButtonClicked"
+        app:layout_constraintBottom_toTopOf="@+id/answer1"
+        app:layout_constraintEnd_toStartOf="@+id/readyButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <Button
+        android:id="@+id/readyButton"
+        android:layout_width="0dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
+        android:text="Ready"
+        android:onClick="readyButtonClicked"
+        app:layout_constraintBottom_toTopOf="@+id/answer1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <android.support.constraint.Group
+        android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Twitch Trivia"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        app:constraint_referenced_ids="answer3,answer2,answer4,answer1" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/app_name"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameButton" />
 
 </android.support.constraint.ConstraintLayout>
